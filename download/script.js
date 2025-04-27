@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setLanguage(lang) {
-        fetch(`${lang}.json`)
+        fetch(`./${lang}.json`)
             .then(response => response.json())
             .then(data => {
                 translations[lang] = data;
@@ -36,18 +36,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadVersions() {
-        fetch('versions.json')
+        fetch('./versions.json')
             .then(response => response.json())
             .then(data => {
                 versions = data;
+                updateVersionList();
                 updateDownloadLinks();
             });
+    }
+
+    function updateVersionList() {
+        const versionList = document.querySelector('.version-list');
+        if (versionList && window.location.pathname.includes('index.html')) {
+            versionList.innerHTML = '';
+            Object.keys(versions).forEach(version => {
+                const link = document.createElement('a');
+                link.href = `/download/download.html?version=${version}`;
+                link.className = 'version-button';
+                link.setAttribute('data-translate', 'version');
+                link.setAttribute('data-version', version);
+                link.textContent = `${translations[currentLang].version} ${version}`;
+                versionList.appendChild(link);
+            });
+        }
     }
 
     function updateDownloadLinks() {
         const urlParams = new URLSearchParams(window.location.search);
         const version = urlParams.get('version');
-        if (version && versions[version]) {
+        if (version && versions[version] && window.location.pathname.includes('download.html')) {
             document.getElementById('mmcPrismLink').href = versions[version].mmcPrism;
             document.getElementById('nativeLink').href = versions[version].native;
         }
