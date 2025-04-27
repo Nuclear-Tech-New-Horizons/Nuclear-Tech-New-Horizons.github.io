@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = localStorage.getItem('language') || 'ru';
     let currentTheme = localStorage.getItem('theme') || 'dark';
     let translations = {};
+    let versions = {};
 
     function setTheme(theme) {
         document.body.classList.toggle('light-theme', theme === 'light');
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setLanguage(lang) {
-        currentLang = lang;
         fetch(`${lang}.json`)
             .then(response => response.json())
             .then(data => {
@@ -35,8 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function loadVersions() {
+        fetch('versions.json')
+            .then(response => response.json())
+            .then(data => {
+                versions = data;
+                updateDownloadLinks();
+            });
+    }
+
+    function updateDownloadLinks() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const version = urlParams.get('version');
+        if (version && versions[version]) {
+            document.getElementById('mmcPrismLink').href = versions[version].mmcPrism;
+            document.getElementById('nativeLink').href = versions[version].native;
+        }
+    }
+
     setTheme(currentTheme);
     setLanguage(currentLang);
+    loadVersions();
 
     document.getElementById('theme-toggle').addEventListener('click', () => {
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
