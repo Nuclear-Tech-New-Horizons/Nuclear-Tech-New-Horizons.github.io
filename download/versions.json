@@ -2,5 +2,9 @@
     "bpokakal": {
         "mmcPrism": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_MMC_PRISM_b240425/view",
         "native": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_NATIVE_b240425/view"
+    },
+    "HULI TI TUT DELAESH": {
+        "mmcPrism": "https://example.com",
+        "native": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 }
