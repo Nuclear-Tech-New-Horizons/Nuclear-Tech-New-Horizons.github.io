@@ -1,14 +1,6 @@
 {
-    "b240425": {
-        "mmcPrism": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_MMC_PRISM_b240425/view",
-        "native": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_NATIVE_b240425/view"
-    },
-    "b240426": {
-        "mmcPrism": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_MMC_PRISM_b240426/view",
-        "native": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_NATIVE_b240426/view"
-    },
-    "b240427": {
-        "mmcPrism": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_MMC_PRISM_b240427/view",
-        "native": "https://drive.google.com/file/d/ВАША_ССЫЛКА_НА_NATIVE_b240427/view"
+    "rickroll": {
+        "mmcPrism": "hhttps://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "native": "https://example.com"
     }
 }
