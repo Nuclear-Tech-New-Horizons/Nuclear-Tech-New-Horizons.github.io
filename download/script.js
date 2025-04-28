@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateVersionList() {
         const versionList = document.querySelector('.version-list');
-        if (versionList && window.location.pathname.includes('index.html')) {
+        if (versionList) {
             versionList.innerHTML = '';
             Object.keys(versions).forEach(version => {
                 const link = document.createElement('a');
