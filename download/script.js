@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateVersionList() {
         const versionList = document.querySelector('.version-list');
         if (versionList) {
-            versionList.innerHTML = '';
+            versionList.innerHTML = ''; // Clear existing buttons
             Object.keys(versions).forEach(version => {
                 const link = document.createElement('a');
                 link.href = `/download/download.html?version=${version}`;
@@ -60,6 +60,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+    
+    function loadVersions() {
+        // Add timestamp to URL to prevent caching
+        fetch(`./versions.json?v=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                versions = data; // Update the versions object
+                console.log('Loaded versions:', versions); // Debug to verify data
+                updateVersionList(); // Refresh the button list
+                updateDownloadLinks(); // Assuming this function exists
+            })
+            .catch(error => console.error('Error loading versions:', error));
+    }
+    
+    // Call loadVersions when the page loads
+    document.addEventListener('DOMContentLoaded', loadVersions);
 
     function updateDownloadLinks() {
         const urlParams = new URLSearchParams(window.location.search);
