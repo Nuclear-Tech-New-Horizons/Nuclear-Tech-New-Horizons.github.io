@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateVersionList() {
         const versionList = document.querySelector('.version-list');
-        if (versionList) {
-            versionList.innerHTML = ''; // Clear existing buttons
+        if (versionList && !window.location.pathname.includes('download.html')) {
+            versionList.innerHTML = '';
             Object.keys(versions).forEach(version => {
                 const link = document.createElement('a');
                 link.href = `/download/download.html?version=${version}`;
