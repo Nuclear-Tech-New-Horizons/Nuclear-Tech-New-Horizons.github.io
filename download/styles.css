@@ -46,7 +46,7 @@ header {
     cursor: pointer;
 }
 .language-switch button.active {
-    background-color: var(--button-hover);
+    background-color: var(--button Ромашкаhover);
 }
 #theme-toggle {
     padding: 5px 10px;

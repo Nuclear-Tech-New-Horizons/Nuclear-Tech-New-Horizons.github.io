@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('lang-ru').classList.toggle('active', lang === 'ru');
                 document.getElementById('lang-en').classList.toggle('active', lang === 'en');
                 localStorage.setItem('language', lang);
-            });
+            })
+            .catch(error => console.error('Error loading translations:', error));
     }
 
     function updateTranslations() {
@@ -36,18 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadVersions() {
-        fetch('./versions.json')
+        fetch(`./versions.json?v=${new Date().getTime()}`)
             .then(response => response.json())
             .then(data => {
                 versions = data;
+                console.log('Loaded versions:', versions);
                 updateVersionList();
                 updateDownloadLinks();
-            });
+            })
+            .catch(error => console.error('Error loading versions:', error));
     }
 
     function updateVersionList() {
-        const versionList = document.querySelector('.version-list');
-        if (versionList && !window.location.pathname.includes('download.html')) {
+        const versionList = document.querySelector('.version-list.populate-versions');
+        if (versionList) {
             versionList.innerHTML = '';
             Object.keys(versions).forEach(version => {
                 const link = document.createElement('a');
@@ -60,22 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-    
-    function loadVersions() {
-        // Add timestamp to URL to prevent caching
-        fetch(`./versions.json?v=${new Date().getTime()}`)
-            .then(response => response.json())
-            .then(data => {
-                versions = data; // Update the versions object
-                console.log('Loaded versions:', versions); // Debug to verify data
-                updateVersionList(); // Refresh the button list
-                updateDownloadLinks(); // Assuming this function exists
-            })
-            .catch(error => console.error('Error loading versions:', error));
-    }
-    
-    // Call loadVersions when the page loads
-    document.addEventListener('DOMContentLoaded', loadVersions);
 
     function updateDownloadLinks() {
         const urlParams = new URLSearchParams(window.location.search);
