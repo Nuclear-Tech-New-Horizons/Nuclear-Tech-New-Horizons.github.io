@@ -1,11 +1,11 @@
 {
-    "title": "Minecraft 1.7.10 Modpack",
+    "title": "Nuclear Tech: new Horizons",
     "subtitle": "Choose a version to download",
-    "version": "Version",
+    "version": "v",
     "downloadTitle": "Download Modpack",
     "downloadSubtitle": "Choose a file to download",
     "mmcPrism": "MMC/Prism",
-    "native": "Native",
+    "native": "ZIP",
     "back": "Back",
     "footer": "© 2025 Nuclear Tech: New Horizons"
 }
