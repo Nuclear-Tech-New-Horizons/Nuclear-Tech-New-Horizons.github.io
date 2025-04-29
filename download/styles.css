@@ -1,10 +1,10 @@
 :root {
     --background-color: #1a1a1a;
     --text-color: #ffffff;
-    --header-bg: #2c3e50;
-    --button-bg: #3498db;
-    --button-hover: #2980b9;
-    --footer-bg: #2c3e50;
+    --header-bg: #50372c;
+    --button-bg: #db7f34;
+    --button-hover: #b94b29;
+    --footer-bg: #70542c;
 }
 .light-theme {
     --background-color: #f0f0f0;
