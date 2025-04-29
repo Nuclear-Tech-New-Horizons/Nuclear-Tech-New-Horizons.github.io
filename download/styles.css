@@ -9,8 +9,8 @@
 .light-theme {
     --background-color: #f0f0f0;
     --text-color: #000000;
-    --header-bg: #ecf0f1;
-    --footer-bg: #ecf0f1;
+    --header-bg: #50372c;
+    --footer-bg: #70542c;
 }
 body {
     font-family: 'Arial', sans-serif;
