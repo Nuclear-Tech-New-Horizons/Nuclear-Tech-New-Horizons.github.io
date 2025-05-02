@@ -1,35 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NTNH - Nuclear Tech: New Horizons</title>
-  <link rel="stylesheet" href="shared/styles.css">
-  <link rel="icon" href="shared/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTNH - Nuclear Tech: New Horizons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Подключаем Swiper для слайдера -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-  <header>
-    <h1>NTNH: Nuclear Tech: New Horizons</h1>
-    <p id="tagline"></p>
-  </header>
+    <header>
+        <div class="settings">
+            <div class="language-switch">
+                <button id="lang-en" onclick="switchLanguage('en')">English</button>
+                <button id="lang-ru" onclick="switchLanguage('ru')">Русский</button>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+        <h1>NTNH: Nuclear Tech: New Horizons</h1>
+        <p id="tagline">A hardcore industrial hi-tech modpack for Minecraft 1.7.10</p>
+    </header>
 
-  <main>
-    <section class="description">
-      <h2>About NTNH</h2>
-      <p id="description"></p>
-      <a href="download/download.html" class="download-button">Download NTNH</a>
-    </section>
+    <main>
+        <!-- Слайдер скриншотов -->
+        <section class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Screenshot+1" alt="Screenshot 1"></div>
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Screenshot+2" alt="Screenshot 2"></div>
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Screenshot+3" alt="Screenshot 3"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </section>
 
-    <section class="language-switcher">
-      <button onclick="switchLanguage('en')">English</button>
-      <button onclick="switchLanguage('ru')">Русский</button>
-    </section>
-  </main>
+        <!-- Описание модпака -->
+        <section class="description">
+            <h2>About NTNH</h2>
+            <p id="description">
+                Nuclear Tech: New Horizons (NTNH) is an industrial hi-tech modpack for Minecraft 1.7.10, inspired by the legendary GTNH. 
+                Dive into a world of complex machinery, nuclear power, and hardcore progression. Perfect for players who love a challenge!
+            </p>
+            <a href="download.html" class="download-button">Download NTNH</a>
+        </section>
+    </main>
 
-  <footer>
-    <p>Hosted on <a href="https://github.com/Nuclear-Tech-New-Horizons/nuclear-tech-new-horizons.github.io">GitHub</a></p>
-  </footer>
+    <footer>
+        <p>Hosted on <a href="https://github.com/Nuclear-Tech-New-Horizons/nuclear-tech-new-horizons.github.io">GitHub</a></p>
+    </footer>
 
-  <script src="script.js"></script>
+    <!-- Подключаем Swiper JS и собственный скрипт -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Инициализация слайдера
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Переключение темы
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            themeToggle.textContent = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>

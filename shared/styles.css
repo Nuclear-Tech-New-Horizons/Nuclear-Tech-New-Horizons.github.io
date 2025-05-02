@@ -108,3 +108,26 @@ footer {
     text-align: center;
     margin-top: auto;
 }
+.swiper-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.download-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--button-bg);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.download-button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
