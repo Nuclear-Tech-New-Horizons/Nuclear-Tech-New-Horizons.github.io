@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let currentLang = localStorage.getItem('language') || 'ru';
+    let currentLang = localStorage.getItem('language') || 'en';
     let currentTheme = localStorage.getItem('theme') || 'dark';
     let translations = {};
     let versions = {};
