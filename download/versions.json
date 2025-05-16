@@ -1,6 +1,6 @@
 {
     "1.0.0": {
-        "mmcPrism": "https://example.com",
-        "native": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        "mmcPrism": "https://github.com/Nuclear-Tech-New-Horizons/NTNH/releases/download/1.0.0/NTNH-1.0.0-MMC_Prism.zip",
+        "native": "https://github.com/Nuclear-Tech-New-Horizons/NTNH/releases/download/1.0.0/NTNH-1.0.0-native.zip"
     }
 }
